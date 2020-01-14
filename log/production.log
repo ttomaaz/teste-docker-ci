@@ -1,0 +1,21 @@
+D, [2020-01-14T01:15:58.260456 #1] DEBUG -- :   [1m[35m (529.9ms)[0m  [1m[35mCREATE DATABASE "ingresse_developer_test_production" ENCODING = 'unicode'[0m
+D, [2020-01-14T01:15:58.285256 #1] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+D, [2020-01-14T01:15:58.290869 #1] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+D, [2020-01-14T01:15:58.394800 #1] DEBUG -- :   [1m[35m (103.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying, "password_digest" character varying, "birthdate" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+D, [2020-01-14T01:15:58.503294 #1] DEBUG -- :   [1m[35m (85.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+D, [2020-01-14T01:15:58.516191 #1] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+D, [2020-01-14T01:15:58.519744 #1] DEBUG -- :   [1m[35m (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200105143141)[0m
+D, [2020-01-14T01:15:58.611753 #1] DEBUG -- :   [1m[35m (88.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+D, [2020-01-14T01:15:58.619899 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2020-01-14T01:15:58.627102 #1] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2020-01-14T01:15:58.628193 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2020-01-14 01:15:58.626312"], ["updated_at", "2020-01-14 01:15:58.626312"]]
+D, [2020-01-14T01:15:58.636310 #1] DEBUG -- :   [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+D, [2020-01-14T01:15:58.637624 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2020-01-14T01:15:58.638930 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+D, [2020-01-14T01:15:58.640727 #1] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2020-01-14T01:15:58.641767 #1] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "10c9998da714138221c79fa1bd463f13a318a670"], ["created_at", "2020-01-14 01:15:58.639601"], ["updated_at", "2020-01-14 01:15:58.639601"]]
+D, [2020-01-14T01:15:58.644860 #1] DEBUG -- :   [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+I, [2020-01-14T01:16:49.899060 #1]  INFO -- : [49382922-2348-44dd-aa74-507ad2528e42] Started GET "/users" for 172.18.0.5 at 2020-01-14 01:16:49 +0000
+I, [2020-01-14T01:16:49.900436 #1]  INFO -- : [49382922-2348-44dd-aa74-507ad2528e42] Processing by UsersController#index as */*
+D, [2020-01-14T01:16:49.920900 #1] DEBUG -- : [49382922-2348-44dd-aa74-507ad2528e42]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+I, [2020-01-14T01:16:49.926421 #1]  INFO -- : [49382922-2348-44dd-aa74-507ad2528e42] Completed 200 OK in 26ms (Views: 0.3ms | ActiveRecord: 8.9ms | Allocations: 3838)
